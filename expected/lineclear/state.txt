@@ -1,5 +1,5 @@
 gamestate gameA
-score 121 level 0 lines 1
+score 120 level 0 lines 1
 body 1 kind 1 pos 224.000 195.396 angle 0.0000 vel 0.000 106.837
 body 2 kind 4 pos 344.001 576.158 angle 0.0000 vel 0.000 0.000
 body 3 kind 3 pos 233.882 559.011 angle 0.3642 vel -0.000 -0.000
