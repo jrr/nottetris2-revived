@@ -31,6 +31,7 @@ set -u
 cd "$(dirname "$0")"
 ROOT=$(pwd)
 . lib/ref.sh
+. lib/native.sh
 LOVE=
 GAME=$ROOT/game
 WEB=0
@@ -84,11 +85,13 @@ if [ $MAC -eq 1 ]; then
 		exit 1
 	fi
 	echo "LÖVE $LOVE (macOS) running $GAME"
+	GAME=$(build_native "$GAME" mac) || exit 1
 	exec "$app/Contents/MacOS/love" "$GAME"
 fi
 
 docker build -q -f "docker/love-$LOVE.Dockerfile" -t "nottetris-love:$LOVE" docker > /dev/null || exit 1
-stop
+stop #before building: the game being stopped may be playing an earlier build
+GAME=$(build_native "$GAME" play "nottetris-love:$LOVE") || exit 1
 
 if [ $WEB -eq 0 ]; then
 	docker build -q -f docker/play.Dockerfile --build-arg "LOVE=$LOVE" -t "nottetris-play:$LOVE" docker > /dev/null || exit 1
