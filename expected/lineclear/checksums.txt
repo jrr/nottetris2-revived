@@ -1,6 +1,5 @@
-cac50666923ce84d81bf2faca8bf66738a23973a  01_row_filled.png
-056bff7bf4c4c28a965a7d35070363dcad856d32  02_clearing.png
-c8e4acdf31956b782e41c3f6e7c0e9234b5e128a  03_after.png
+cb7a4ab08d9d95867126bc6a481a143e5206e8f8  01_row_filled.png
+ffe94ac6fc30215e39189b6f5113076d84b758ab  02_clearing.png
+0520fee48ad9714d7a3b2bddb57dda0febc3959b  03_after.png
 f5e0e4e08da4963d466e137370ede636e811a42b  highscoresA.txt
-86cb0984a4ff0531f27ed881c3b06baf0767a74e  options.txt
-686348f3e182dbfd95be8547af5ab15494d99546  state.txt
+f826bda96868b4a845b3e2e265e5ab456a6c86f2  state.txt

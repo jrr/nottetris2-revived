@@ -58,6 +58,13 @@ Not Tetris 2 is by Maurice Guégan, released under the
 [2dengine's love.js](https://github.com/2dengine/love.js), which builds on
 ports of LÖVE to the web by David Khachaturov and Tanner Rogalsky.
 
+## The `playdate` branch
+
+This branch follows the game's `playdate` branch, which is on its way to the
+Playdate: physics on Chipmunk instead of Box2D, and no versus mode or options
+screen. Its baselines in `expected/` are that game's; `main`'s stay the
+LÖVE port's.
+
 ## Porting harness
 
 The rest of this page is for working on the port.
