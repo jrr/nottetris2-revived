@@ -95,6 +95,15 @@ The baselines only describe the current game, so these runs check behavior
 only: nothing errors, every `expect` passes. Each finished port is tagged,
 so earlier versions stay playable: see [Milestones](#milestones).
 
+### Games with C code
+
+A game can bring C code in `native/`, with a `Makefile`. Before it plays,
+`run.sh` and `play.sh` copy the game into `out/`, leaving out what its
+`.gitignore` does, and run `make -C native` there: in the LÖVE version's
+image, which has a C compiler since it builds LÖVE from source, or for
+`--mac` on this machine. The game loads what that builds itself, through
+LuaJIT's FFI. Games without `native/` play from where they are, as before.
+
 ### Playing by hand
 
 ```
@@ -157,6 +166,7 @@ on the LÖVE version it was made for, and the current harness runs them all
 | `scenarios/*.lua` | the scenarios; step format at the top of `harness_main.lua` |
 | `expected/` | baselines, and `love-version`, the version they were made with |
 | `lib/ref.sh` | `--ref`: export the game at a ref; the LÖVE version a game wants |
+| `lib/native.sh` | build a game's C code (`native/Makefile`) before it plays |
 | `lib/build-web.sh` | the game in a browser (2dengine's love.js), for `mise run web` and Pages |
 | `.github/workflows/pages.yml` | publishes that to GitHub Pages on every push to main |
 | `lib/fetch-ci-build.sh` | an unreleased LÖVE's macOS build from CI, for `play.sh --mac` |

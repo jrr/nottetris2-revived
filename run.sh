@@ -24,6 +24,7 @@ set -u
 cd "$(dirname "$0")"
 ROOT=$(pwd)
 . lib/ref.sh
+. lib/native.sh
 BASELINE_LOVE=$(cat expected/love-version 2>/dev/null)
 LOVE=
 GAME=$ROOT/game
@@ -67,6 +68,7 @@ fi
 IMAGE=nottetris-love:$LOVE
 
 docker build -q -f "docker/love-$LOVE.Dockerfile" -t "$IMAGE" docker > /dev/null || exit 1
+GAME=$(build_native "$GAME" run "$IMAGE") || exit 1
 
 run_one() {
 	local name=$1
